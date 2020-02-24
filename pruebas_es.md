@@ -36,7 +36,7 @@ Para la ejecución de las pruebas es necesario el uso de un Cliente REST. Se pro
 
 ## *1.1* Generación automática de un cliente <a name="id1.1"></a>
 
-Al estar basado en SWAGGER la publicación del API, es posible utilizar la utilidad [swagger-codegen-cli](https://search.maven.org/classic/#search%7Cgav%7C1%7Cg%3A%22io.swagger%22%20AND%20a%3A%22swagger-codegen-cli%22) para generar una aplicación completa, a partir del fichero JSON obtenido de la descarga https://bandejadesalida-dev.cmobility30.es:8443/v2/api-docs (requerido certificado)
+Al estar basado en SWAGGER la publicación del API, es posible utilizar la utilidad [swagger-codegen-cli](https://search.maven.org/classic/#search%7Cgav%7C1%7Cg%3A%22io.swagger%22%20AND%20a%3A%22swagger-codegen-cli%22) para generar una aplicación completa, a partir del [fichero JSON obtenido de la descarga](aux/swagger.md)
 
 Teniendo la utilidad en el mismo directorio que el fichero api-docs.json hay que ejecutar el comando.
 
