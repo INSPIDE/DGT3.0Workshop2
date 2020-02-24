@@ -139,6 +139,16 @@ Para llevar a cabo las operaciones del API es necesario obtener un token de sesi
 ```
 El proceso de autenticación está basado en certificados digitales de cliente. Para la realización de pruebas y posterior pase a producción, el cliente deberá cumplimentar la documentación proporcionada en la que se le solicitan los datos necesarios de la empresa que vaya a consumir los servicios. El certificado será emitido por la PKI de la plataforma y entregado físicamente al responsable del mismo.
 
+En caso de no tener permisos tanto en esta operación como en el envío de eventos, se devolverá un mensaje del tipo
+
+```json
+{
+    "info_code": 99,
+    "info_desc": "Authorization error",
+    "data": []
+}
+```
+
 > <img src="/images/explain.png" alt="Ayuda" width="20"/>		**Explicación**
 >
 > Se trata de una identificación correcta gracias a la introducción de los valores `token`e`idcompany`. El token es el proporcionado temporalmente por el servicio, e idcompany corresponde al campo CN del certificado digital de cliente.
