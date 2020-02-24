@@ -1,7 +1,7 @@
 ## **Autor**
 
 | Empresa | Fecha | Versión |
-|:-:|:-:|:-:|:-:|
+|:-:|:-:|:-:|
 | <img src="/images/inspide2.png" alt="INSPIDE" width="100"/>  | 12/03/2019 | 2.0 |
 
 ## **Ponente**
@@ -23,7 +23,7 @@ soporte@cmobility30.es
 <img src="/images/question.png" alt="API" width="20"/> **Documentación del API Bandeja de Salida**
 
 
-La información del API de la **Bandeja de Salida** se encuentra en las siguientes urls: [Apiary](https://bandejasalida.docs.apiary.io) (Acceso libre) y  [Swagger](https://bandejadesalida-dev.cmobility30.es:8443/swagger-ui.html) (requerido certificado)
+La información del API de la **Bandeja de Salida** se encuentra en las siguientes url:   [Swagger](https://app.swaggerhub.com/apis-docs/jgcasta/DGT3.0-v16/1.0#/) 
 
 <img src="/images/question.png" alt="API" width="20"/> **Herramientas**
 
@@ -32,7 +32,7 @@ Para la ejecución de las pruebas es necesario el uso de un Cliente REST. Se pro
 
 <img src="/images/question.png" alt="API" width="20"/> **Diagrama de secuencia**
 
-<img src="/images/diagramasecuencia.png">
+<img src="/images/flujo_v16.png">
 
 ## *1.1* Generación automática de un cliente <a name="id1.1"></a>
 
