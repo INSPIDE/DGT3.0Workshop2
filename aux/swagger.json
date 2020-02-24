@@ -142,6 +142,27 @@
         }
       }
     },
+    "/api/masterTables/1.0/getInfos" : {
+      "get" : {
+        "summary" : "Get INFOS table content",
+        "description" : "Retrive INFOS table content",
+        "operationId" : "getInfos",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "INFOS information",
+            "schema" : {
+              "$ref" : "#/definitions/response_master_table"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
     "/api/1.0/getToken" : {
       "get" : {
         "summary" : "Get token from X509 Certificate",

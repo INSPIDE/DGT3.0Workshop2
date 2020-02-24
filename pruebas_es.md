@@ -125,7 +125,6 @@ Los cambios en alguna de las tablas es posible conocerlos consultando la operaci
 
 Para llevar a cabo las operaciones del API es necesario obtener un token de sesión que caducará de forma aleatoria a lo largo de la misma. La operación que permite obtenerlo es **/api/1.0/getToken** que devuelve el siguiente resultado:
 
-<img src="images/diagramasecuencia.png" alt="Ayuda" />
 
 ```json
 {
