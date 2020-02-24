@@ -12,8 +12,8 @@
       "name" : "Copyright DGT 2020"
     }
   },
-  "host" : "virtserver.swaggerhub.com",
-  "basePath" : "/jgcasta/DGT3.0-v16/1.0",
+  "host" : "dgt30v16input-dev.cmobility30.es",
+  "basePath" : "/api/",
   "schemes" : [ "https" ],
   "paths" : {
     "/api/masterTables/1.0/getChangeTables" : {
