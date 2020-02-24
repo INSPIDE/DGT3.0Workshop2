@@ -180,7 +180,7 @@ Desde un cliente, una vez obtenido el token de autorización, solo hay que invoc
 }
 ```
 
-El resultado de esta operación será
+El resultado de esta operación será, si todo ha ido correctamente
 
 ```json
 {
@@ -189,5 +189,9 @@ El resultado de esta operación será
     "data": []
 }
 ```
+
+En el caso de producirse algún error durante el procesamiento se devolverá el error correspondiente listado en la operacion **/api/masterTables/1.0/getInfos**
+
+
 
 © 2020 DGT. Todos los derechos reservados.
