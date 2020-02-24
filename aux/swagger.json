@@ -1,0 +1,404 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "DGT 3.0 V16 connection API description",
+    "version" : "1.0",
+    "title" : "DGT 3.0 V16 connection API",
+    "contact" : {
+      "name" : "Jose Gomez Castaño",
+      "email" : "jgcasta@inspide.com"
+    },
+    "license" : {
+      "name" : "Copyright DGT 2020"
+    }
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/jgcasta/DGT3.0-v16/1.0",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/api/masterTables/1.0/getChangeTables" : {
+      "get" : {
+        "summary" : "Get change tables information",
+        "description" : "Retrive token from table last update",
+        "operationId" : "getChangeTables",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Token information",
+            "schema" : {
+              "$ref" : "#/definitions/response_changetable"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/masterTables/1.0/getUses" : {
+      "get" : {
+        "summary" : "Get USES table content",
+        "description" : "Retrive USES table content",
+        "operationId" : "getUses",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "USES information",
+            "schema" : {
+              "$ref" : "#/definitions/response_master_table"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/masterTables/1.0/getStationTypes" : {
+      "get" : {
+        "summary" : "Get STATION_TYPES table content",
+        "description" : "Retrive STATION_TYPES table content",
+        "operationId" : "getStationTypes",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "STATION_TYPES information",
+            "schema" : {
+              "$ref" : "#/definitions/response_master_table"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/masterTables/1.0/getLanePositions" : {
+      "get" : {
+        "summary" : "Get LANE_POSITIONS table content",
+        "description" : "Retrive LANE_POSITIONS table content",
+        "operationId" : "getLanePositions",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "LANE_POSITIONS information",
+            "schema" : {
+              "$ref" : "#/definitions/response_master_table"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/masterTables/1.0/getDeviceEventTypes" : {
+      "get" : {
+        "summary" : "Get DEVICE_EVENT_TYPES table content",
+        "description" : "Retrive DEVICE_EVENT_TYPES table content",
+        "operationId" : "getDeviceEventTypes",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "DEVICE_EVENT_TYPES information",
+            "schema" : {
+              "$ref" : "#/definitions/response_master_table"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/masterTables/1.0/getEventDetectionTypes" : {
+      "get" : {
+        "summary" : "Get EVENT_DETECTION_TYPES table content",
+        "description" : "Retrive EVENT_DETECTION_TYPES table content",
+        "operationId" : "getEventDetectionTypes",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "EVENT_DETECTION_TYPES information",
+            "schema" : {
+              "$ref" : "#/definitions/response_master_table"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/1.0/getToken" : {
+      "get" : {
+        "summary" : "Get token from X509 Certificate",
+        "description" : "Retrive token from CN attribure in the X509 certificate",
+        "operationId" : "getToken",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Token information",
+            "schema" : {
+              "$ref" : "#/definitions/response_token"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/v16/1.0/postincidence" : {
+      "post" : {
+        "summary" : "Adds incidence data",
+        "description" : "Adds and incidence data. A new incidence can be created or it adds data",
+        "operationId" : "postEvent",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "incidence",
+          "description" : "Incidence data to add",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/event"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Incidence created",
+            "schema" : {
+              "$ref" : "#/definitions/response"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "response" : {
+      "type" : "object",
+      "required" : [ "info_code", "info_desc" ],
+      "properties" : {
+        "info_code" : {
+          "type" : "string",
+          "example" : "infoid_example",
+          "description" : "Id information"
+        },
+        "info_desc" : {
+          "type" : "string",
+          "example" : "infodesc_example",
+          "description" : "Info description"
+        }
+      }
+    },
+    "response_changetable" : {
+      "type" : "object",
+      "required" : [ "data", "info_code", "info_desc" ],
+      "properties" : {
+        "info_code" : {
+          "type" : "string",
+          "example" : "infoid_example",
+          "description" : "Id information"
+        },
+        "info_desc" : {
+          "type" : "string",
+          "example" : "infodesc_example",
+          "description" : "Info description"
+        },
+        "data" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/change_table"
+          }
+        }
+      }
+    },
+    "change_table" : {
+      "type" : "object",
+      "properties" : {
+        "info_code" : {
+          "type" : "string",
+          "example" : "2020-02-24T07:53:24.090+0000",
+          "description" : "Timestamp las change"
+        },
+        "info_desc" : {
+          "type" : "string",
+          "example" : "v16_device_events_types",
+          "description" : "Table name"
+        }
+      }
+    },
+    "response_master_table" : {
+      "type" : "object",
+      "required" : [ "data", "info_code", "info_desc" ],
+      "properties" : {
+        "info_code" : {
+          "type" : "string",
+          "example" : "infoid_example",
+          "description" : "Id information"
+        },
+        "info_desc" : {
+          "type" : "string",
+          "example" : "infodesc_example",
+          "description" : "Info description"
+        },
+        "data" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/master_table"
+          }
+        }
+      }
+    },
+    "master_table" : {
+      "type" : "object",
+      "required" : [ "description", "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "example" : 1
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "example"
+        }
+      }
+    },
+    "response_token" : {
+      "type" : "object",
+      "required" : [ "data", "info_code", "info_desc" ],
+      "properties" : {
+        "info_code" : {
+          "type" : "string",
+          "example" : "infoid_example",
+          "description" : "Id information"
+        },
+        "info_desc" : {
+          "type" : "string",
+          "example" : "infodesc_example",
+          "description" : "Info description"
+        },
+        "data" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/token"
+          }
+        }
+      }
+    },
+    "token" : {
+      "type" : "object",
+      "required" : [ "token" ],
+      "properties" : {
+        "token" : {
+          "type" : "string",
+          "example" : "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9",
+          "description" : "Token to use in POST operations"
+        }
+      }
+    },
+    "event" : {
+      "type" : "object",
+      "required" : [ "actionid", "detection_time", "device_event_type", "device_event_type_value", "event_detection_type", "idcompany", "information_quality", "lat", "lon", "speed", "station_type", "use" ],
+      "properties" : {
+        "idcompany" : {
+          "type" : "string",
+          "example" : "v16.example.com",
+          "description" : "CN in X509 certificate"
+        },
+        "actionid" : {
+          "type" : "string",
+          "example" : "v16.example.com",
+          "description" : "CN in X509 certificate"
+        },
+        "detection_time" : {
+          "type" : "string",
+          "example" : "v16.example.com",
+          "description" : "CN in X509 certificate"
+        },
+        "lon" : {
+          "type" : "number",
+          "format" : "float",
+          "example" : "v16.example.com",
+          "description" : "CN in X509 certificate"
+        },
+        "lat" : {
+          "type" : "number",
+          "format" : "float",
+          "example" : "v16.example.com",
+          "description" : "CN in X509 certificate"
+        },
+        "device_event_type" : {
+          "type" : "string",
+          "example" : "v16.example.com",
+          "description" : "CN in X509 certificate"
+        },
+        "device_event_type_value" : {
+          "type" : "string",
+          "example" : "v16.example.com",
+          "description" : "CN in X509 certificate"
+        },
+        "information_quality" : {
+          "type" : "string",
+          "example" : "v16.example.com",
+          "description" : "CN in X509 certificate"
+        },
+        "heading" : {
+          "type" : "string",
+          "example" : "v16.example.com",
+          "description" : "CN in X509 certificate"
+        },
+        "station_type" : {
+          "type" : "string",
+          "example" : "v16.example.com",
+          "description" : "CN in X509 certificate"
+        },
+        "speed" : {
+          "type" : "string",
+          "example" : "v16.example.com",
+          "description" : "CN in X509 certificate"
+        },
+        "ambient_temperature" : {
+          "type" : "string",
+          "example" : "v16.example.com",
+          "description" : "CN in X509 certificate"
+        },
+        "lane_position" : {
+          "type" : "string",
+          "example" : "v16.example.com",
+          "description" : "CN in X509 certificate"
+        },
+        "use" : {
+          "type" : "string",
+          "example" : "v16.example.com",
+          "description" : "CN in X509 certificate"
+        },
+        "event_detection_type" : {
+          "type" : "string",
+          "example" : "v16.example.com",
+          "description" : "CN in X509 certificate"
+        }
+      }
+    }
+  }
+}
