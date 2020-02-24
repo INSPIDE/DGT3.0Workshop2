@@ -6,7 +6,7 @@ Realización de pruebas de integración asistidas por el equipo de desarrollo de
 
 | Empresa | Fecha | Versión |
 |:-:|:-:|:-:|
-| <img src="/images/inspide2.png" alt="INSPIDE" width="100"/>  | 12/03/2019 | 2.0 |
+| <img src="/images/inspide2.png" alt="INSPIDE" width="100"/>  | 10-02-2020 | 1.0 |
 
 ## *01* **Ponentes**
 
