@@ -36,84 +36,88 @@ Para la ejecución de las pruebas es necesario el uso de un Cliente REST. Se pro
 
 ## *1.1* Generación automática de un cliente <a name="id1.1"></a>
 
-Al estar basado en SWAGGER la publicación del API, es posible utilizar la utilidad [swagger-codegen-cli](https://search.maven.org/classic/#search%7Cgav%7C1%7Cg%3A%22io.swagger%22%20AND%20a%3A%22swagger-codegen-cli%22) para generar una aplicación completa, a partir del [fichero JSON obtenido de la descarga](aux/swagger.md)
+Al estar basado en SWAGGER la publicación del API, es posible utilizar la utilidad [swagger-codegen-cli](https://search.maven.org/classic/#search%7Cgav%7C1%7Cg%3A%22io.swagger%22%20AND%20a%3A%22swagger-codegen-cli%22) para generar una aplicación completa, a partir del [fichero JSON obtenido de la descarga](https://github.com/INSPIDE/DGT3.0Workshop2/blob/master/aux/swagger.json)
 
 Teniendo la utilidad en el mismo directorio que el fichero api-docs.json hay que ejecutar el comando.
 
 ```sh
 java -jar swagger-codegen-cli-2.4.1.jar generate \
   -i bandejadesalida_1.0.json \
-  --api-package es.xxxxxx.dgt30.bandejasalida.client.api \
-  --model-package es.xxxxxx.dgt30.bandejasalida.client.model \
-  --invoker-package es.xxxxxx.dgt30.bandejasalida.client.invoker \
+  --api-package es.xxxxxx.dgt30.v16.client.api \
+  --model-package es.xxxxxx.dgt30.v16.client.model \
+  --invoker-package es.xxxxxx.dgt30.v16.client.invoker \
   --group-id es.xxxxxx \
-  --artifact-id es.xxxxxx.dgt30.bandejasalida \
+  --artifact-id es.xxxxxx.dgt30.v16 \
   --artifact-version 0.0.1-SNAPSHOT \
   -l java \
   --library resttemplate \
   -o DGT30BandejaSalidaClient
 ```
 
-
-
-## *00.* - Tablas maestras <a name="id21"></a>
-
-Para el filtrado de la información de los PMVV activos en cada momento, es necesario enviar un JSON con los atributos de filtrado, que responde al siguiente ejemplo
+## Mensaje a enviar con la notificación de un evento
 
 ```json
 {
-  "idcompany": "INSPIDE",
-  "token": "28a9e96167a6ee0f84bb9c46e8a3b381032f7d9de59ce882539db044e4ee691f",
-  "type": 0,
-  "province": 28,
-  "road": "A2",
-  "kpfrom": 2,
-  "kpto": 50,
-  "direction": 3,
-  "mode": 3,
-  "category": 3,
-  "withgeom": 1
+	"message_ver" : "1.0",
+	"idcompany":"v16.example.com",
+	"token": "asdfasdfasdfasdf",
+	"actionid": "1",
+	"event_detection_type":1,
+	"detection_time": "2020-02-24 07:17:27",
+	"lon": -3.5 ,
+	"lat": 40.5,
+	"device_event_type": 1,
+	"device_event_type_value": 1,
+	"information_quality": 1,
+	"heading": 100,
+	"station_type": 1,
+	"speed": 0,
+	"ambient_temperature": 25,
+	"lane_position": 1,
+	"use": 1
 }
 ```
 
-Los atributos están codificados y pueden consultarse invocando al método GET de la tabla maestra correspondiente. Estas están constantemente actualizadas en https://bandejadesalida-dev.cmobility30.es:8443/swagger-ui.html
+##  Tablas maestras <a name="id21"></a>
+
+Para interpretar la codificación contenida en el mensaje POST a enviar al servicio, es necesario consultar ciertas Tablas Auxiliares.
+
+
+
+Los atributos están codificados y pueden consultarse invocando al método GET de la tabla maestra correspondiente. Estas están constantemente actualizadas en https://app.swaggerhub.com/apis-docs/jgcasta/DGT3.0-v16/1.0#/
 
 ## Cambios en las tablas Maestras
 
-Los cambios en alguna de las tablas es notificado mediante un mensaje MQTT al tópico **out.changetables** según el siguiente diagrama de secuencia
-
-<img src="images/secnotifmastertables.png" alt="Ayuda" />
+Los cambios en alguna de las tablas es posible conocerlos consultando la operación /api/masterTables/1.0/getChangeTables que devuelve la última fecha de actualización de cada tabla
 
 ```json
 {
-    "code": 1,
-    "data": [],
-    "desc": "MasterTables have a change"
+    "info_code": 0,
+    "info_desc": "OK",
+    "data": [
+        {
+            "ts": "2020-02-24T07:53:24.090+0000",
+            "name": "v16_device_events_types"
+        },
+        {
+            "ts": "2020-02-24T07:54:21.671+0000",
+            "name": "v16_event_detection_types"
+        },
+        {
+            "ts": "2020-02-24T07:54:21.680+0000",
+            "name": "v16_lane_positions"
+        },
+        {
+            "ts": "2020-02-24T07:54:21.681+0000",
+            "name": "v16_station_types"
+        },
+        {
+            "ts": "2020-02-24T07:54:21.683+0000",
+            "name": "v16_uses"
+        }
+    ]
 }
 ```
-
-En estes caso, o cuando se desee, se puede consultar la últmia actaulilzación de las mismas para solicitar su contenido, mediante el método  **/api/1.0/mastertables/getChangeTables** , lo que devuelve el siguiente mensaje
-
-```json
-{
-  "errorCode": 0,
-  "errorDesc": "OK",
-  "data": [
-    {
-      "idchange": 1,
-      "tschange": "2019-02-20T05:00:00.000+0000",
-      "tablename": "Categories"
-    },
-    {
-      "idchange": 2,
-      "tschange": "2019-02-20T01:00:00.000+0000",
-      "tablename": "ErrorCodes"
-    }
-	]
-}
-```
-
-
 
 # Ejercicios **prácticos** <a name="id2"></a>
 
