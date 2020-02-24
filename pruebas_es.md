@@ -121,9 +121,7 @@ Los cambios en alguna de las tablas es posible conocerlos consultando la operaci
 
 # Ejercicios **prácticos** <a name="id2"></a>
 
-## *01.* - Identificación en el servicio <a name="id21"></a>
-
-Ejemplo **a | Identificación correcta**
+##  Identificación en el servicio <a name="id21"></a>
 
 Para llevar a cabo las operaciones del API es necesario obtener un token de sesión que caducará de forma aleatoria a lo largo de la misma. La operación que permite obtenerlo es **/api/1.0/getToken** que devuelve el siguiente resultado:
 
@@ -146,5 +144,41 @@ El proceso de autenticación está basado en certificados digitales de cliente. 
 >
 > Se trata de una identificación correcta gracias a la introducción de los valores `token`e`idcompany`. El token es el proporcionado temporalmente por el servicio, e idcompany corresponde al campo CN del certificado digital de cliente.
 >
+
+## Envío de evento
+
+Desde un cliente, una vez obtenido el token de autorización, solo hay que invocar a la operación POST  **/api/v16/1.0/postincidence**
+
+```json
+{
+	"message_ver" : "1.0",
+	"idcompany":"v16.example.com",
+	"token": "asdfasdfasdfasdf",
+	"actionid": "1",
+	"event_detection_type":1,
+	"detection_time": "2020-02-24 07:17:27",
+	"lon": -3.5 ,
+	"lat": 40.5,
+	"device_event_type": 1,
+	"device_event_type_value": 1,
+	"information_quality": 1,
+	"heading": 100,
+	"station_type": 1,
+	"speed": 0,
+	"ambient_temperature": 25,
+	"lane_position": 1,
+	"use": 1
+}
+```
+
+El resultado de esta operación será
+
+```json
+{
+    "info_code": 0,
+    "info_desc": "OK",
+    "data": []
+}
+```
 
 © 2020 DGT. Todos los derechos reservados.
