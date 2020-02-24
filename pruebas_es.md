@@ -2,7 +2,7 @@
 
 | Empresa | Fecha | Versión |
 |:-:|:-:|:-:|
-| <img src="/images/inspide2.png" alt="INSPIDE" width="100"/>  | 12/03/2019 | 2.0 |
+| <img src="/images/inspide2.png" alt="INSPIDE" width="100"/>  | 23-02-2020 | 1.0 |
 
 ## **Ponente**
 
@@ -25,6 +25,9 @@ soporte@cmobility30.es
 * [Instrucción 18/ V- 132](https://github.com/INSPIDE/DGT3.0Workshop2/blob/master/aux/Instruccion-18-V-132-Revision-senal-V16-2.pdf)
 * La información del API de la **Bandeja de  de conexión a señal V16** se encuentra en las siguientes url:   [Swagger](https://app.swaggerhub.com/apis-docs/jgcasta/DGT3.0-v16/1.0#/) 
 * Documentación descriptiva del servicio [Definición de protocolos e interfaces para la recogida de notificaciones de la señal V16 v0.3](https://github.com/INSPIDE/DGT3.0Workshop2/blob/master/aux/protocolo_v0_3.pdf) 
+
+## Entornos
+* Preproducción: **dgt30v16input-dev.cmobility30.es**
 
 <img src="/images/question.png" alt="API" width="20"/> **Herramientas**
 
