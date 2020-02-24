@@ -19,7 +19,7 @@ Realización de pruebas de integración asistidas por el equipo de desarrollo de
 
 ## *02* Ronda de **presentaciones** <a name="id2"></a>
 
-Ronda inicial de presentaciones entre todos los asistentes al workshop *"Pruebas de conexión real a DGT 3.0"*.
+Ronda inicial de presentaciones entre todos los asistentes al workshop *"Pruebas de conexión para envío de señales V16 a DGT 3.0"*.
 
 ## *03* Información **práctica** <a name="id3"></a>
 
