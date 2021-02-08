@@ -42,21 +42,7 @@ Para la ejecución de las pruebas es necesario el uso de un Cliente REST. Se pro
 
 Al estar basado en SWAGGER la publicación del API, es posible utilizar la utilidad [swagger-codegen-cli](https://search.maven.org/classic/#search%7Cgav%7C1%7Cg%3A%22io.swagger%22%20AND%20a%3A%22swagger-codegen-cli%22) para generar una aplicación completa, a partir del [fichero JSON obtenido de la descarga](https://github.com/INSPIDE/DGT3.0Workshop2/blob/master/aux/swagger.json)
 
-Teniendo la utilidad en el mismo directorio que el fichero api-docs.json hay que ejecutar el comando.
 
-```sh
-java -jar swagger-codegen-cli-2.4.1.jar generate \
-  -i bandejadesalida_1.0.json \
-  --api-package es.xxxxxx.dgt30.v16.client.api \
-  --model-package es.xxxxxx.dgt30.v16.client.model \
-  --invoker-package es.xxxxxx.dgt30.v16.client.invoker \
-  --group-id es.xxxxxx \
-  --artifact-id es.xxxxxx.dgt30.v16 \
-  --artifact-version 0.0.1-SNAPSHOT \
-  -l java \
-  --library resttemplate \
-  -o DGT30BandejaSalidaClient
-```
 
 ## Mensaje a enviar con la notificación de un evento
 
